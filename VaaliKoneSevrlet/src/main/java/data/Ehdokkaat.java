@@ -1,6 +1,8 @@
 package data;
 
-public class Ehdokkaat {
+import java.io.Serializable;
+
+public class Ehdokkaat implements Serializable{
 
 	private int ehdokasId;
 	private String sukunimi;
