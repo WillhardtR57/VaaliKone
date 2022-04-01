@@ -9,7 +9,7 @@ import java.security.NoSuchAlgorithmException;
 public class LoginData {
 
 	
-	public static Boolean CheckPassword (String password1, String password2) {
+	public static Boolean PasswordCheck (String password1, String password2) {
 		boolean passwordCorrect = false;
 		
 		if(password1.equals(password2)) {
