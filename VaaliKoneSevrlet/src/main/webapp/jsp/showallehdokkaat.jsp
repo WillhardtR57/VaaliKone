@@ -5,6 +5,7 @@
 
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="data.Ehdokkaat" %>
+<%@ page import="app.dao.Dao" %>
 
 
 <!DOCTYPE html>
@@ -27,17 +28,17 @@
 	<th>Mit‰ asioita haluat edist‰‰?</th>
 	<th>Ammatti</th>
 </tr>
-<c:forEach var="ehdokkaat" items="${sessionScope.kaikkiehdokkaat }">
+<c:forEach var="Ehdokkaat" items="${requestScope.kaikkiEhdokkaat}">
 	<tr>
-		<td>${ehdokkaat.ehdokasId }</td>
-		<td>${ehdokkaat.sukunimi }</td>
-		<td>${ehdokkaat.etunimi }</td>
-		<td>${ehdokkaat.puolue }</td>
-		<td>${ehdokkaat.kotipaikkaKunta }</td>
-		<td>${ehdokkaat.ika }</td>
-		<td>${ehdokkaat.miksiEduskuntaan }</td>
-		<td>${ehdokkaat.mitaAsioitaHaluatEdistaa }</td>
-		<td>${ehdokkaat.ammatti }</td>
+		<td>${Ehdokkaat.ehdokas_id}</td>
+		<td>${Ehdokkaat.sukunimi}</td>
+		<td>${Ehdokkaat.etunimi}</td>
+		<td>${Ehdokkaat.puolue}</td>
+		<td>${Ehdokkaat.kotipaikkakunta}</td>
+		<td>${Ehdokkaat.ika}</td>
+		<td>${Ehdokkaat.miksi_eduskuntaan}</td>
+		<td>${Ehdokkaat.mita_asioita_haluat_edistaa}</td>
+		<td>${Ehdokkaat.ammatti}</td>
 		<td>
 		</td>
 	</tr>

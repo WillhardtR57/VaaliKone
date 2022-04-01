@@ -15,10 +15,7 @@ import javax.servlet.http.HttpSession;
 import app.dao.Dao;
 import data.Ehdokkaat;
 
-@WebServlet(
-		name = "ShowEhdokkaat",
-		urlPatterns = {"/showehdokkaat"}
-		)
+@WebServlet("/showehdokkaat")
 public class ShowEhdokkaat extends HttpServlet {
 	
 	@Override
