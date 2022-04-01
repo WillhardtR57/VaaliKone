@@ -32,19 +32,18 @@ public class Dao {
 	public ArrayList<Ehdokkaat> readKaikkiEhdokkaat() {
 		ArrayList<Ehdokkaat> list=new ArrayList<>();
 		Statement stmt=null;
-		int count=0;
 		try {
 			stmt = conn.createStatement();
 			ResultSet rs=stmt.executeQuery("select * from ehdokkaat");
 			while (rs.next()) {
 				Ehdokkaat ehdokkaat=new Ehdokkaat();
-				ehdokkaat.setEhdokasId(rs.getInt("ehdokasId"));
+				ehdokkaat.setEhdokas_id(rs.getInt("ehdokas_id"));
 				ehdokkaat.setSukunimi(rs.getString("sukunimi"));
 				ehdokkaat.setEtunimi(rs.getString("etunimi"));
-				ehdokkaat.setKotiPaikkakunta(rs.getString("kotiPaikkakunta"));
+				ehdokkaat.setKotipaikkakunta(rs.getString("kotipaikkakunta"));
 				ehdokkaat.setIka(rs.getInt("ika"));
-				ehdokkaat.setMiksiEduskuntaan(rs.getString("miksiEduskuntaan"));
-				ehdokkaat.setMitaAsioitaHaluatEdistaa(rs.getString("mitaAsioitaHaluatEdistaa"));
+				ehdokkaat.setMiksi_eduskuntaan(rs.getString("miksi_eduskuntaan"));
+				ehdokkaat.setMita_asioita_haluat_edistaa(rs.getString("mita_asioita_haluat_edistaa"));
 				ehdokkaat.setAmmatti(rs.getString("ammatti"));
 				list.add(ehdokkaat);
 			}
