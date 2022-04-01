@@ -1,21 +1,22 @@
 package app;
-
+import app.dao.Dao;
+import data.Ehdokkaat;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import app.Dao;
-@WebServlet(
-    name = "HelloAppEngine",
-    urlPatterns = {"/hello"}
-)
+@WebServlet(name="Ehdokkaat", urlPatterns={"/ehdokkaat"})
+
 public class HelloAppEngine extends HttpServlet {
 
-  @Override
+  private PrintWriter out;
+
+@Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) 
       throws IOException {
 
@@ -28,7 +29,6 @@ public class HelloAppEngine extends HttpServlet {
   
   private Ehdokkaat readEhdokkaat (HttpServletRequest request) {
 	  Ehdokkaat ehdokkaat = new Ehdokkaat();
-	  ehdokkaat.setEhdokasId(request.getParameter("ehdokasId"));
 	  ehdokkaat.setSukunimi(request.getParameter("sukunimi"));
 	  ehdokkaat.setEtunimi(request.getParameter("etunimi"));
 	  ehdokkaat.setPuolue(request.getParameter("puolue"));

@@ -53,6 +53,14 @@ public class Ehdokkaat {
 	public void setIka(int ika) {
 		this.ika = ika;
 	}
+	public void setIka(String s) {
+		try {
+		this.ika = Integer.parseInt(s);
+		}
+		catch(NumberFormatException e) {
+			this.ika=0;
+		}
+	}
 	
 	public String getMiksiEduskuntaan() {
 		return miksiEduskuntaan;
