@@ -12,14 +12,14 @@
 <title>Vaalikone - Edit Candidates</title>
 </head>
 <body>
-
 <c:import url="../navbaradmin.html" charEncoding="UTF-8"/>
+<h1>You can edit or remove candidates</h1>
+
 <c:forEach var="candidate" items="${sessionScope.candidateslist}" >
 
-<h2>Muokkaa tai poista ehdokkaita</h2> <br>
-
-
-
+<b>${candidate.ehdokas_id}:</b> ${candidate.etunimi}, ${candidate.sukunimi} 
+<a href="/readcandidate?ehdokas_id=${candidate.ehdokas_id}">Muokkaa</a> 
+<a href='deleteCandidate?id=${candidate.ehdokas_id}'>Poista</a> <br><br>
 
 </c:forEach>
 

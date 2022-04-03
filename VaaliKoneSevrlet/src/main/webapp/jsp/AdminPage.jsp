@@ -12,7 +12,7 @@
 <ul>
   <h1>Vaalikone</h1>
   <li><a href="../jsp/AdminPage.jsp">Admin Home</a></li>
-  <li><a href="../jsp/candidatepicker.jsp">Edit Candidates</a></li>
+  <li><a href="/candidatepicker">Edit Candidates</a></li>
   <li><a href="/logout">Logout</a></li>
 </ul>
 </div>
