@@ -10,8 +10,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 
-import data.UserData;
-import data.Ehdokkaat;
+import app.data.UserData;
+import app.data.Candidates;
 
 public class Dao {
 	private Connection conn;
@@ -33,35 +33,34 @@ public class Dao {
 		}
 	}
 	
-	public ArrayList<Ehdokkaat> readKaikkiEhdokkaat() {
-		ArrayList<Ehdokkaat> list=new ArrayList<>();
-		Statement stmt=null;
+	public ArrayList<Candidates> readAllCandidates() {
+		ArrayList<Candidates> list = new ArrayList<>();
 		try {
-			stmt = conn.createStatement();
-			ResultSet rs=stmt.executeQuery("select * from ehdokkaat");
-			while (rs.next()) {
-				Ehdokkaat ehdokkaat=new Ehdokkaat();
-				ehdokkaat.setEhdokas_id(rs.getInt("ehdokas_id"));
-				ehdokkaat.setSukunimi(rs.getString("sukunimi"));
-				ehdokkaat.setEtunimi(rs.getString("etunimi"));
-				ehdokkaat.setKotipaikkakunta(rs.getString("kotipaikkakunta"));
-				ehdokkaat.setIka(rs.getInt("ika"));
-				ehdokkaat.setMiksi_eduskuntaan(rs.getString("miksi_eduskuntaan"));
-				ehdokkaat.setMita_asioita_haluat_edistaa(rs.getString("mita_asioita_haluat_edistaa"));
-				ehdokkaat.setAmmatti(rs.getString("ammatti"));
-				list.add(ehdokkaat);
+			Statement stmt = conn.createStatement();
+			ResultSet RS = stmt.executeQuery("select * from ehdokkaat");
+			while (RS.next()) {
+				Candidates candidate = new Candidates();
+				candidate.setEhdokas_id(RS.getInt("ehdokas_id"));
+				candidate.setSukunimi(RS.getString("sukunimi"));
+				candidate.setEtunimi(RS.getString("etunimi"));
+				candidate.setPuolue(RS.getString("puolue"));
+				candidate.setKotipaikkakunta(RS.getString("kotipaikkakunta"));
+				candidate.setIka(RS.getInt("ika"));
+				candidate.setMiksi_eduskuntaan(RS.getString("miksi_eduskuntaan"));
+				candidate.setMita_asioita_haluat_edistaa(RS.getString("mita_asioita_haluat_edistaa"));
+				candidate.setAmmatti(RS.getString("ammatti"));
+				list.add(candidate);
 			}
+			return list;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			return null;
 		}
-		return list;
 	}
 	public static UserData checkLogin(String username, String password) throws SQLException,
     ClassNotFoundException {
     String jdbcURL = "jdbc:mysql://localhost:3306/vaalikone";
-    String dbUser = "root";
-    String dbPassword = "password";
+    String dbUser = "pena";
+    String dbPassword = "kukkuu";
 
     Class.forName("com.mysql.jdbc.Driver");
     Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/vaalikone", "pena", "kukkuu");

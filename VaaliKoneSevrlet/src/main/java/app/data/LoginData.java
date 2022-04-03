@@ -1,4 +1,4 @@
-package data;
+package app.data;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

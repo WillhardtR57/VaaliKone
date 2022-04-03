@@ -1,7 +1,5 @@
 package app;
-
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -13,11 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import app.dao.Dao;
-import data.Ehdokkaat;
+import app.data.Candidates;
 
-@WebServlet("/showehdokkaat")
-public class ShowEhdokkaat extends HttpServlet {
-	
+@WebServlet(
+		name = "ShowCandidates",
+		urlPatterns = {"/showcandidates"}
+		)
+public class ShowCandidates extends HttpServlet{
+
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws IOException, ServletException {
@@ -26,11 +27,11 @@ public class ShowEhdokkaat extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		Dao dao = new Dao();
-		ArrayList<Ehdokkaat> ehdokkaat = dao.readKaikkiEhdokkaat();
+		ArrayList<Candidates> list = dao.readAllCandidates();
 		
-		session.setAttribute("kaikkiehdokkaat", ehdokkaat);
+		session.setAttribute("candidateslist", list);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("jsp/showallehdokkaat.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("jsp/showcandidates.jsp");
 		rd.forward(request, response);
 	
 	}
@@ -40,5 +41,5 @@ public class ShowEhdokkaat extends HttpServlet {
 			throws IOException, ServletException {
 		doGet(request, response);
 	}
-
+	
 }
