@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +14,7 @@
     src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/jquery.validate.min.js"></script>
 </head>
 <body>
+<c:import url="../navbar.html" charEncoding="UTF-8"/>
     <div style="text-align: center">
         <h1>Admin Login</h1>
         <form action="../login" method="post">
@@ -26,6 +28,7 @@
             <button type="submit">Login</button>
         </form>
     </div>
+    <%@ include file="../footer.html" %>
 </body>
 <script type="text/javascript">
  

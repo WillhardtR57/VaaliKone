@@ -5,19 +5,27 @@
  <%@ page import="app.dao.Dao" %>   
  
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%
+    session=request.getSession(false);
+    if(session.getAttribute("user")==null)
+    {
+        response.sendRedirect("../index.html");
+    }
+
+%> 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Vaalikone - All Candidates</title>
+<title>Vaalikone</title>
 </head>
 <body>
 
 
-<c:import url="../navbar.html" charEncoding="UTF-8"/>
+<c:import url="../navbaradmin.html" charEncoding="UTF-8"/>
 
 <c:forEach var="candidate" items="${sessionScope.candidateslist}" >
-<p><b>${candidate.ehdokas_id}:</b> ${candidate.etunimi} ${candidate.sukunimi} </p>
+<h2><b>${candidate.ehdokas_id}:</b> ${candidate.etunimi} ${candidate.sukunimi} </h2>
 <b>Puolue: </b><br>
 ${candidate.puolue} <br>
 <b>Kotipaikkakunta:</b><br>

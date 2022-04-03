@@ -20,7 +20,7 @@ public class AdminLogout extends HttpServlet {
         if (session != null) {
             session.removeAttribute("user");
              
-            RequestDispatcher dispatcher = request.getRequestDispatcher("jsp/AdminLogin.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("./index.html");
             dispatcher.forward(request, response);
         }
     }
