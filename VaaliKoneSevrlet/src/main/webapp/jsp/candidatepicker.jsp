@@ -13,13 +13,13 @@
 </head>
 <body>
 <c:import url="../navbaradmin.html" charEncoding="UTF-8"/>
-<h1>You can edit or remove candidates</h1>
+<h1>You can edit or delete candidates</h1>
 
 <c:forEach var="candidate" items="${sessionScope.candidateslist}" >
 
 <b>${candidate.ehdokas_id}:</b> ${candidate.etunimi}, ${candidate.sukunimi} 
-<a href="/readcandidate?ehdokas_id=${candidate.ehdokas_id}">Muokkaa</a> 
-<a href='deleteCandidate?id=${candidate.ehdokas_id}'>Poista</a> <br><br>
+<a href="/readcandidate?ehdokas_id=${candidate.ehdokas_id}">Edit</a> 
+<a href='deleteCandidate?id=${candidate.ehdokas_id}'>Delete</a> <br><br>
 
 </c:forEach>
 
