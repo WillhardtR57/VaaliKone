@@ -1,5 +1,5 @@
 package app;
-import data.UserData;
+import app.data.UserData;
 import java.io.IOException;
 
 import javax.servlet.*;
@@ -20,7 +20,7 @@ public class AdminLogout extends HttpServlet {
         if (session != null) {
             session.removeAttribute("user");
              
-            RequestDispatcher dispatcher = request.getRequestDispatcher("AdminLogin.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("jsp/AdminLogin.jsp");
             dispatcher.forward(request, response);
         }
     }

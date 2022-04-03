@@ -1,5 +1,5 @@
 package app;
-import data.UserData;
+import app.data.UserData;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import app.dao.Dao;
-import data.LoginData;
+import app.data.LoginData;
 
 @WebServlet(
 	    name = "AdminLogin",
@@ -40,11 +40,11 @@ public class AdminLogin extends HttpServlet {
 	  
 	  try {
 		  UserData user = Dao.checkLogin(username, password);
-		  String destPage = "AdminLogin.jsp";
+		  String destPage = "jsp/AdminLogin.jsp";
 		  if (user != null) {
 			  HttpSession session = request.getSession();
 			  session.setAttribute("user", user);
-			  destPage = "AdminPage.jsp";
+			  destPage = "jsp/AdminPage.jsp";
 		  } else {
 			  String message = "Invalid username/password";
 			  request.setAttribute("message", message);
