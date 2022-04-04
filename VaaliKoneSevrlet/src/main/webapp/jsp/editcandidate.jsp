@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Vaalikone - Edit Candidate</title>
 </head>
 <body>
@@ -15,7 +15,7 @@
 <h1>Editing candidate</h1>
 
 <br>
-<form action='/editcandidate' method='post'>
+<form action='/editcandidate' method='post' accept-charset="UTF-8">
 
 <input type="hidden" name='ehdokas_id' value='${sessionScope.candidate.ehdokas_id}'> <br>
 

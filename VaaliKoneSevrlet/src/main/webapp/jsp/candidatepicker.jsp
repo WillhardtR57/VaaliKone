@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="UTF-8"%>
+    pageEncoding="ISO-8859-1"%>
  <%@ page import="java.util.ArrayList" %>   
  <%@ page import="app.data.*" %> 
  <%@ page import="app.dao.Dao" %> 
@@ -18,7 +18,7 @@
 <c:forEach var="candidate" items="${sessionScope.candidateslist}" >
 
 <b>${candidate.ehdokas_id}:</b> ${candidate.etunimi}, ${candidate.sukunimi} 
-<a href="/editcandidate?id=${candidate.ehdokas_id}">Edit</a> 
+<a href="/editcandidate?ehdokas_id=${candidate.ehdokas_id}">Edit</a> 
 <a href='deletecandidate?id=${candidate.ehdokas_id}'>Delete</a> <br><br>
 
 </c:forEach>
