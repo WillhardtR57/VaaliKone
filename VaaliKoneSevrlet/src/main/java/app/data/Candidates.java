@@ -1,6 +1,8 @@
 package app.data;
 
-public class Candidates {
+import java.io.Serializable;
+
+public class Candidates implements Serializable{
 
 	private int ehdokas_id;
 	private String sukunimi;
@@ -85,5 +87,9 @@ public class Candidates {
 	}
 	public void setAmmatti(String ammatti) {
 		this.ammatti = ammatti;
+	}
+	
+	public String toString() {
+		return ehdokas_id+" "+sukunimi+""+etunimi+""+puolue+" "+kotipaikkakunta+""+ika+""+miksi_eduskuntaan+" "+mita_asioita_haluat_edistaa+""+ammatti;
 	}
 }

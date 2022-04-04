@@ -18,8 +18,8 @@
 <c:forEach var="candidate" items="${sessionScope.candidateslist}" >
 
 <b>${candidate.ehdokas_id}:</b> ${candidate.etunimi}, ${candidate.sukunimi} 
-<a href="/readcandidate?ehdokas_id=${candidate.ehdokas_id}">Edit</a> 
-<a href='deleteCandidate?id=${candidate.ehdokas_id}'>Delete</a> <br><br>
+<a href="/editcandidate?id=${candidate.ehdokas_id}">Edit</a> 
+<a href='deletecandidate?id=${candidate.ehdokas_id}'>Delete</a> <br><br>
 
 </c:forEach>
 

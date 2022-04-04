@@ -56,6 +56,52 @@ public class Dao {
 			return null;
 		}
 	}
+	
+	public int editCandidate(Candidates candidate) {
+
+			int count = 0;
+			String sql = "update ehdokkaat set sukunimi = ?, etunimi = ?, puolue = ?, kotipaikkakunta = ?, ika = ?, miksi_eduskuntaan = ?, mita_asioita_haluat_edistaa = ?, ammatti = ? where ehdokas_id = ? ";
+			try {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setString(1, candidate.getSukunimi());
+			stmt.setString(2, candidate.getEtunimi());
+			stmt.setString(3, candidate.getPuolue());
+			stmt.setString(4, candidate.getKotipaikkakunta());
+			stmt.setInt(5, candidate.getIka());
+			stmt.setString(6, candidate.getMiksi_eduskuntaan());
+			stmt.setString(7, candidate.getMita_asioita_haluat_edistaa());
+			stmt.setString(8, candidate.getAmmatti());
+			stmt.setInt(9, candidate.getEhdokas_id());
+			count = stmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} return count;
+	}
+	
+	public Candidates getCandidateId(int id) {
+		Candidates candidate = null;
+		String sql = "select * from ehdokkaat where ehdokas_id = ?";
+		try {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, id);
+			ResultSet RS = stmt.executeQuery();
+			if (RS.next()) {
+				candidate = new Candidates();
+				candidate.setEhdokas_id(RS.getInt("ehdokas_id"));
+				candidate.setSukunimi(RS.getString("sukunimi"));
+				candidate.setEtunimi(RS.getString("etunimi"));
+				candidate.setPuolue(RS.getString("puolue"));
+				candidate.setKotipaikkakunta(RS.getString("kotipaikkakunta"));
+				candidate.setIka(RS.getInt("ika"));
+				candidate.setMiksi_eduskuntaan(RS.getString("miksi_eduskuntaan"));
+				candidate.setMita_asioita_haluat_edistaa(RS.getString("mita_asioita_haluat_edistaa"));
+				candidate.setAmmatti(RS.getString("ammatti"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} return candidate;
+	}
+	
 	public static UserData checkLogin(String username, String password) throws SQLException,
     ClassNotFoundException {
     String jdbcURL = "jdbc:mysql://localhost:3306/vaalikone";
