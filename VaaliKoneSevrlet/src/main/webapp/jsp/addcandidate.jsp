@@ -4,8 +4,8 @@
  <%@ page import="java.util.ArrayList" %>   
  <%@ page import="app.data.*" %> 
  <%@ page import="app.dao.Dao" %>   
-    
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+<link rel=stylesheet type="text/css" href="/css/styles.css"></link>
 <!DOCTYPE html>
 <html>
 <head>

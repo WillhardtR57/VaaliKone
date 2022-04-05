@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
      <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+     <link rel=stylesheet type="text/css" href="/css/styles.css"></link>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
-<title>Admin Login</title>
+<title>Vaalikone - Admin Login</title>
 <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
