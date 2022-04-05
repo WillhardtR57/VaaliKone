@@ -125,9 +125,9 @@ public class Dao {
 	public ArrayList<Candidates> deleteCandidate(String id) {
 		try {
 			String sql = "delete from ehdokkaat where ehdokas_id=?";
-			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, id);
-			pstmt.executeUpdate();
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setString(1, id);
+			stmt.executeUpdate();
 			return readAllCandidates();
 		} catch (SQLException e) {
 			return null;

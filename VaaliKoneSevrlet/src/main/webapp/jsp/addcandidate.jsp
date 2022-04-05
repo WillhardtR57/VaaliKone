@@ -18,7 +18,9 @@
 <h1>Add candidate</h1>
 
 <br>
-<form action='/addcandidate' method='post' accept-charset="UTF-8">
+<form action='/addcandidate' method='post'>
+
+<input type="hidden" name='ehdokas_id'>
 
 <b> Sukunimi </b> <br>
 <input type="text" name='sukunimi' value=''> <br>
@@ -44,7 +46,7 @@
 <b> Ammatti </b> <br>
 <input type="text" name='ammatti' value=''> <br> 
 
-<input type='Submit' name='ok' value='Save'> 
+<input type='Submit' name='ok' value='Add'> 
 </form>
 
 <%@ include file="../footer.html" %>
