@@ -19,7 +19,7 @@
 
 <b>${candidate.ehdokas_id}:</b> ${candidate.etunimi}, ${candidate.sukunimi} 
 <a href="/editcandidate?ehdokas_id=${candidate.ehdokas_id}">Edit</a> 
-<a href='deletecandidate?id=${candidate.ehdokas_id}'>Delete</a> <br><br>
+<a href='/deletecandidate?ehdokas_id=${candidate.ehdokas_id}'>Delete</a> <br><br>
 
 </c:forEach>
 

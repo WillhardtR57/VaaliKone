@@ -102,6 +102,38 @@ public class Dao {
 		} return candidate;
 	}
 	
+	public ArrayList<Candidates> addCandidate(Candidates candidates) {
+		String sql = "insert into ehdokkaat (ehdokas_id, sukunimi, etunimi, puolue, kotipaikkakunta, ika, miksi_eduskuntaan, mita_asioita_haluat_edistaa, ammatti) values (?,?,?,?,?,?,?,?,?)";
+		try {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, candidates.getEhdokas_id());
+			stmt.setString(2, candidates.getEtunimi());
+			stmt.setString(3, candidates.getSukunimi());
+			stmt.setString(4, candidates.getPuolue());
+			stmt.setString(5, candidates.getKotipaikkakunta());
+			stmt.setInt(6, candidates.getIka());
+			stmt.setString(7, candidates.getMiksi_eduskuntaan());
+			stmt.setString(8, candidates.getMita_asioita_haluat_edistaa());
+			stmt.setString(9, candidates.getAmmatti());
+			stmt.executeUpdate();
+			return readAllCandidates();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	public ArrayList<Candidates> deleteCandidate(String id) {
+		try {
+			String sql = "delete from ehdokkaat where ehdokas_id=?";
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.executeUpdate();
+			return readAllCandidates();
+		} catch (SQLException e) {
+			return null;
+		}
+	}
+	
 	public static UserData checkLogin(String username, String password) throws SQLException,
     ClassNotFoundException {
     String jdbcURL = "jdbc:mysql://localhost:3306/vaalikone";
